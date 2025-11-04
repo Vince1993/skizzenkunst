@@ -10,12 +10,12 @@
     <body>
         <header>
             <span class="inter_default_font" id="respo_menu">&#8801;</span>
-            <h1 class="inter_default_font">Get a sketch</h1>
+            <h1 class="inter_default_font"><a href="index.html">Get a sketch &copy;</a></h1>
             <nav>
-                <ul>
+                <ul class="inter_default_font">
                     <li><a href="#">Home</a></li>
-                    <li><a>Sketches</a></li>
-                    <li><a>About</a></li>
+                    <li><a href="#">Sketches</a></li>
+                    <li><a href="#">About</a></li>
                 </ul>
             </nav>
         </header>
@@ -23,28 +23,33 @@
         <main>
             <section class="index_landing">
                 <img src="media/sketch5.png">
-                <p class="inter_default_font ">“Get a sketch” is a website to share art. Download a picture, send it to make someone smile. <br>Donation voluntarily.</p>
+                <p class="inter_default_font ">
+                    “Get a sketch” is a website to share art. Download a picture, send it to make someone smile. <br><br>Donation voluntarily</p>
             </section>
 
-            <!-- create Gallery -->
-            <section>
-                <div class="gallery"></div>
+            <section class="index_sketch_section">
+                <h2 class="inter_default_font">Sketches</h2>
+                <p class="inter_default_font">Have a look around, pick your favourite, and download the sketch.</pclass>
+                <div class="gallery">
+                    <!-- images are rendered by jQuery -->
+                </div>
             </section>
 
-
+            <!--Biuld Footer-->
         </main>
 
 
 
 <script src="jQuery/jQuery.js"></script>
 <script>
-
-
 // Using an object literal for a jQuery feature
 var myFeature = {
     init: function() {
         $("#respo_menu").click(this.openNav);
         this.loadImages();
+        $(".gallery").on("click", "img", function () {
+            myFeature.fullScreenImage.call(this);
+        });
     },
     openNav: function() {
         $("header nav").slideToggle();
@@ -55,13 +60,30 @@ var myFeature = {
                 $('.gallery').append(`<img src="media/${image}" alt="One sketch shown on website">`);
             });
         });
+    },
+    fullScreenImage: function () {
+        if (document.fullscreenElement) {
+            document.exitFullscreen();
+        } else {
+            const elem = this;
+            if (elem.requestFullscreen) {
+                elem.requestFullscreen();
+            } else if (elem.webkitRequestFullscreen) {
+                elem.webkitRequestFullscreen();
+            } else if (elem.msRequestFullscreen) {
+                elem.msRequestFullscreen();
+            }
+        }
+       
+    } 
 
-    }
+
 };
 
 $(document).ready(function() {
     myFeature.init();
 });
+
 </script>
     </body>
 

@@ -4,25 +4,33 @@
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;}
-html{font-size: 18px;}
+html{font-size: 20px;}
 *{box-sizing: border-box; padding: 0; margin: 0;} li{list-style-type:none;} a{text-decoration: none; color: black;}
 header{border-top: 20px solid black;
        border-bottom:20px solid black;
        background-color: #EFEFEF;
+       padding: 20px;
        display: flex; flex-direction: row; flex-wrap: wrap; align-items: center;}
 header span{font-size: 55px; margin: 5px;}
-header h1{display: inline-block; flex-grow: 2; text-align: center;}
-header nav{flex: 1 0 100%; justify-self: flex-start; display:flex;
-           flex direction: column; padding-left: 10px;} header nav ul li{padding: 5px;} header nav ul li a{font-size: 1.1rem;}
+header h1{display: inline-block; flex-grow: 2; text-align: center; font-size: 1.3rem;}
+header nav{display: none; flex: 1 0 100%; justify-self: flex-start; padding-left: 10px;} header nav ul li{padding: 5px;}
 
 .index_landing{display: flex; flex-direction: column; align-items: center; border-bottom: 20px solid black;}
-.index_landing img{width: 95%; padding: 20px 0 20px 0; border-radius: 50px;}
-.index_landing p{text-align: center; padding: 46px 0px 46px 0px;}
+.index_landing img{width: 70%; padding: 20px; border-radius: 50px;}
+.index_landing p{text-align: center; padding: 46px 20px 46px 20px;}
+
+.index_sketch_section * {text-align: center; padding: 30px;}
 
 .gallery{display: grid;
-         grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
+         grid-template-columns: repeat(auto-fill, minmax(250px,1fr));
          gap: 20px;
+         padding: 10px;
          background-color: black;}
-.gallery img{width: 100%; height: auto; display: block; transition: transform 0.3s ease, box-shadow 0.3s ease;} .gallery img:hover{transform: scale(1.05);
-                                                                                                                                   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);}
+.gallery img{width: 100%; height: auto; display: block; transition: transform 0.3s ease, box-shadow 0.3s ease;} .gallery img:hover{transform: scale(1.05); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);}
+@media only screen and (min-width: 700px) {
+  header span{display: none;}
+  header nav {display: flex!important; padding: 10px;}
+  header nav ul{flex: 1 0 100%; display: flex; flex-direction: row!important; justify-content: space-around;}
 
+  .index_landing{display: flex; flex-direction: row;} .index_landing img{width: 30%;} .index_landing p{flex-grow: 1; font-size: 1.1rem;}
+}
