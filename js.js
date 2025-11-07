@@ -20,7 +20,7 @@ var myFeature = {
 
     showFullscreen: function () {
         $('.gallery').on('click', 'img', function () {
-            var targetSrc = $(this).data('target');
+            var targetSrc = $(this).attr('data-target');
             $('#fullscreen_img').attr('src', targetSrc);
             $('.fullscreen').fadeIn();
         });
