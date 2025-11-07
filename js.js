@@ -4,19 +4,19 @@ var myFeature = {
         $("#respo_menu").click(this.openNav);
         this.loadImages();
 
-        $(".gallery").on("click", "img", (event) => {
-            const image = event.currentTarget; // The clicked <img> element
-            this.openFullscreen(image);
-          });
+        $(".gallery").on("click", "img", function (event) {
+            const image = event.currentTarget;
+            myFeature.openFullscreen(image);
+        });
 
-        $("#fullscreenImg").click(this.closeFullscreen);
+        $(".fullscreenImg").click(this.closeFullscreen);
          
         // Hide image when fullscreen exits
         $(document).on("fullscreenchange webkitfullscreenchange msfullscreenchange", function () {
             if (!document.fullscreenElement &&
                 !document.webkitFullscreenElement &&
                 !document.msFullscreenElement) {
-                $("#fullscreenImg").hide();
+                $(".fullscreenImg img").remove();
             }
         });
     },
@@ -35,24 +35,19 @@ var myFeature = {
 
     openFullscreen: function (image) {
         {
-            let img_src = $(image).attr('src');
-            let img_file_name = img_src.split('/').pop();
-            let newFileName = img_file_name.replace('.jpg', '.png');
-            let new_src = "media/" + newFileName;
+            let new_src = $(image).attr('data-target');
 
-            let $fullImg = $("#fullscreenImg");
-            $fullImg.attr('src', new_src);
-            $fullImg.show("full");
-            let elem = $fullImg[0]; // Get the raw DOM element
+            $('.fullscreenImg').append('<img class="full" src=' + new_src + ' alt="One sketch shown on website">');
 
-            // Check if currently in fullscreen
+            let $elem = $('.fullscreenImg img')[0]; 
+             // Check if currently in fullscreen
             let isFullscreen = document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement;
 
             if (!isFullscreen) 
             {
-                if (elem.requestFullscreen) {elem.requestFullscreen();} 
-                else if (elem.webkitRequestFullscreen) {elem.webkitRequestFullscreen();} 
-                else if (elem.msRequestFullscreen) {elem.msRequestFullscreen();}
+                if ($elem.requestFullscreen) {$elem.requestFullscreen();} 
+                else if ($elem.webkitRequestFullscreen) {$elem.webkitRequestFullscreen();} 
+                else if ($elem.msRequestFullscreen) {$elem.msRequestFullscreen();}
             } 
             if(isFullscreen)
             {
@@ -71,8 +66,8 @@ var myFeature = {
             else if (document.webkitExitFullscreen) { document.webkitExitFullscreen(); }
             else if (document.msExitFullscreen) { document.msExitFullscreen(); }
         
-            $("#fullscreenImg").hide();
-    }
+        $(".fullscreenImg img").remove();
+        }
 
 };
 
