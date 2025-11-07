@@ -3,9 +3,7 @@ var myFeature = {
     init: function () {
         $("#respo_menu").click(this.openNav);
         this.loadImages();
-        $(".gallery").on("click", "img", function () {
-            myFeature.fullScreenImage.call(this);
-        });
+        this.showFullscreen();
         
     },
     openNav: function () {
@@ -14,29 +12,23 @@ var myFeature = {
     loadImages: function () {
         $.getJSON('images.json', function (images) {
             $.each(images, function (index, image) {
-                $('.gallery').append(`<img src="media/${image}" alt="One sketch shown on website">`);
+                var newSrc = image.replace(/\.\w+$/, '.png');
+                $('.gallery').append(`<img src="media/compressed/${image}" data-target="media/${newSrc}" alt="One sketch shown on website">`);
             });
         });
     },
 
+    showFullscreen: function () {
+        $('.gallery').on('click', 'img', function () {
+            var targetSrc = $(this).data('target');
+            $('#fullscreen_img').attr('src', targetSrc);
+            $('.fullscreen').fadeIn();
+        });
 
-
-    fullScreenImage: function () {
-        if (document.fullscreenElement) {
-            document.exitFullscreen();
-        } else {
-            const elem = this;
-            if (elem.requestFullscreen) {
-                elem.requestFullscreen();
-            } else if (elem.webkitRequestFullscreen) {
-                elem.webkitRequestFullscreen();
-            } else if (elem.msRequestFullscreen) {
-                elem.msRequestFullscreen();
-            }
-        }
-
-    },
-
+        $('.fullscreen').click(function () {
+            $('.fullscreen').fadeOut();
+        });
+    }
 };
 
 $(document).ready(function () {
