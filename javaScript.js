@@ -28,6 +28,10 @@ $(document).ready(function () {
     $("a").on("touchstart", function () {
         $(this).addClass("link_hover_effect");
       });
+    
+    $("#donation_button").on("touchstart", function () {
+        $(this).addClass("");
+    });
 });
 
 function slideInAndOut() {

@@ -23,7 +23,7 @@ nav a{display: none; color: rgb(224, 221, 221); padding:5px; font-size: 1.3rem; 
 .link_hover_effect{text-decoration: overline;}
 
 #donation_button{cursor: pointer;margin: 20px; background-color: black; color:aliceblue; border-radius: 10px; font-size: 1rem ;width: 300px; height: 80px; transition: background-color 1s ease;}
-#donation_button:hover{background-color: #EFEFEF; color: black;}
+#donation_button:hover, .touch_button{background-color: #EFEFEF; color: black;}
 
 @media only screen and (min-width: 1000px){
     header{border: none; padding: 30px;}
