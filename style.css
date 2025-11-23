@@ -65,7 +65,7 @@ nav a{display: none; color: rgb(0, 0, 0); padding:5px; font-size: 1.3rem; font-w
 
 #support button{width: 330px; height: 80px;
                 cursor: pointer;
-                font-size: 1.1rem; 
+                font-size: 1.07rem; 
                 margin: 30px; 
                 color:rgb(255, 255, 255);
                 background-color: #24408d;
@@ -78,7 +78,7 @@ footer{height: 240px; display:flex; flex-direction: column; padding: 20px; backg
 
 @media only screen and (min-width: 1000px){
     html{font-size: 128%;}
-    p{font-size: 1.13rem; padding: 40px 180px 40px 180px}
+    p{padding: 40px 180px 40px 180px}
 
     header{padding: 30px;}
     header span{display: none;}
