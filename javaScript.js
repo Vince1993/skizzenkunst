@@ -1,9 +1,7 @@
 $(document).ready(function () {
     $("#respo").click(slideInAndOut);
 
-<<<<<<< HEAD
     rotateImages();
-=======
     /*$.ajax({
         url: "countImages.php",
         dataType: "json",   // <-- tell jQuery to parse JSON
@@ -15,7 +13,6 @@ $(document).ready(function () {
             console.error("AJAX error:", status, error);
         }
     });*/
->>>>>>> 475d45c148faffb599526d45317e3ca7094302a8
 
     loadImages(17);
 
