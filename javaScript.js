@@ -16,8 +16,6 @@ $(document).ready(function () {
 
     loadImages(17);
 
-    loadImages(17);
-
     $(document).on("click", ".img_grid img", openCloseFullScreen);
 
     $("a[href^='#']").on("click", scrollingSmoothToId);
